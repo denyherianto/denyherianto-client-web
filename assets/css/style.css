@@ -1,0 +1,71 @@
+/* Color
+ * Primary: #d7b065
+ */
+.color-primary { color: #d7b065 !important; }
+
+.dark-mode {
+  color: #ebf4f1;
+  background-color: #071521;
+}
+
+.title-posts { font-size: 22px !important; line-height: 26px !important; }
+.title-category, .title-post-time { font-size: 14px !important; }
+.title-category:after { content: "·"; font-family: "Lato Bold", "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-right: .25rem; }
+
+.button { border-radius: 0% !important; }
+.button.is-primary { color: #d7b065 !important; border-color: #d7b065 !important; }
+.button.is-primary.is-outlined:focus, .button.is-primary.is-outlined:hover { background-color: #d7b065 !important; color: #fff !important; }
+
+.font-light { font-family: "Lato Light", "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.font-regular { font-family: "Lato Regular", "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.font-bold { font-family: "Lato Bold", "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.font-title-regular { font-family: "Playfair Display", "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; }
+
+.has-shadow { -webkit-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75); box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75); }
+
+.is-rounded { border-radius: 4px !important; }
+.has-margin-t-8 { margin-top: 0.25rem; }
+
+body { color: #000; font-size: 1rem; font-weight: 400; line-height: 1.5; font-family: 'Lato Regular', sans-serif; margin-top: 5.5rem; }
+.container { max-width: 960px !important; margin: auto; }
+.container.is-small { max-width: 720px !important; }
+
+/* .header .navbar { background: #; background: -moz-linear-gradient(45deg, #e33977 0%, #f66458 100%); background: -webkit-linear-gradient(45deg, #e33977 0%,#f66458 100%); background: linear-gradient(45deg, #e33977 0%,#f66458 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e33977', endColorstr='#f66458',GradientType=1 ); } */
+.header .navbar .navbar-brand .navbar-item { padding-top: 0rem !important; padding-bottom: .5rem !important; }
+.header .navbar .navbar-brand .navbar-item img { max-height: 2.5rem; transition: .4s ease; }
+.header .navbar .navbar-menu .navbar-item { padding-top: 2rem !important; padding-bottom: 2rem !important; transition: .4s ease; }
+.header .navbar.shrink .navbar-brand .navbar-item img { max-height: none; width: 170px; }
+.header .navbar.shrink .navbar-menu .navbar-item { padding-top: 0rem !important; padding-bottom: 0rem !important; }
+
+/* .caption-wrapper { margin-top: 100px;y } */
+
+.main .bread-wrapper { background-color: #f4f4f5; }
+
+.footer { background-color: #ededed; }
+
+/* Author */
+.author.media { display: flex; align-items: center; }
+
+/* Posts */
+/* .posts-wrapper p { max-width: 720px !important; margin: auto !important; margin-bottom: 1.5rem !important; } */
+.posts-wrapper p { margin: auto !important; margin-bottom: 1.5rem !important; }
+.posts-wrapper .cover img { width: 100%; } 
+.posts-wrapper .content img > p { max-width: 100% !important; margin: auto !important; margin-bottom: 1.5rem !important; }
+.posts-wrapper small { margin: auto !important; font-size: 1rem !important; text-align: center !important; }
+
+@media only screen and (max-width: 1024px) {
+  body { overflow-x: hidden; margin-top: 3.6rem; }
+  .container { width: 92% !important; max-width: 92% !important; }
+
+  .header .navbar .container { max-width: 100% !important; width: 100% !important; }
+  .header .navbar .navbar-menu { background: transparent; box-shadow: none; }
+  /* .header .navbar .navbar-brand a { margin: auto !important; } */
+  .header .navbar .navbar-menu .navbar-item { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+  .header .navbar .navbar-brand .navbar-item { padding-top: .5rem !important; padding-bottom: .5rem !important; }
+  .header .navbar-link.is-active, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:hover { background-color: #ededed !important; }
+  .main .bread-wrapper { padding-bottom: 1rem !important; padding-top: 1rem !important; }
+
+  .posts-wrapper .content { font-size: 1rem !important; line-height: 1.5rem !important; }
+  .post-author figure { margin-bottom: 0 !important; }
+  .post-date { text-align: center !important; padding: 0.5rem 0 !important; }
+}
