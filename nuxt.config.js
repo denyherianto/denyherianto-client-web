@@ -145,7 +145,7 @@ export default {
 
   env: {
     siteUrl: 'https://me.denyherianto.com',
-    baseUrl: 'https://contents.denyherianto.com',
+    baseUrl: 'https://backend.denyherianto.com',
     title: "Deny's Daily",
   },
 
