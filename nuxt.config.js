@@ -52,11 +52,13 @@ export default {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap',
+        defer: true,
       },
       {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap',
+        defer: true,
       },
     ],
   },
