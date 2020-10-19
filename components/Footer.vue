@@ -9,15 +9,30 @@
             >
               Find me on:
             </span>
-            <a :href="facebook" target="_blank" class="has-margin-l-7">
+            <a
+              :href="facebook"
+              target="_blank"
+              rel="noopener"
+              class="has-margin-l-7"
+            >
               <fa-icon :icon="['fab', 'facebook-square']" class="fa-2x" />
             </a>
             &nbsp;
-            <a :href="instagram" target="_blank" class="has-margin-l-7">
+            <a
+              :href="instagram"
+              target="_blank"
+              rel="noopener"
+              class="has-margin-l-7"
+            >
               <fa-icon :icon="['fab', 'instagram']" class="fa-2x" />
             </a>
             &nbsp;
-            <a :href="linkedin" target="_blank" class="has-margin-l-7">
+            <a
+              :href="linkedin"
+              target="_blank"
+              rel="noopener"
+              class="has-margin-l-7"
+            >
               <fa-icon :icon="['fab', 'linkedin']" class="fa-2x" />
             </a>
           </div>

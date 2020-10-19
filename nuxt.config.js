@@ -154,4 +154,14 @@ export default {
   server: {
     port: 8117, // default: 3000
   },
+
+  pwa: {
+    manifest: {
+      name: "Deny's daily",
+      lang: 'en',
+    },
+    workbox: {
+      clientsClaim: false,
+    },
+  },
 }
