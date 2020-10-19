@@ -157,8 +157,10 @@ export default {
 
   pwa: {
     manifest: {
-      name: "Deny's daily",
+      name: 'Deny Herianto',
+      short_name: 'denyherianto',
       lang: 'en',
+      start_url: '/',
     },
     workbox: {
       clientsClaim: false,
