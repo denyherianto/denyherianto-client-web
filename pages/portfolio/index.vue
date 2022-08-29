@@ -1,57 +1,58 @@
 <template>
   <div>
-    <section class="main">
-
-      <div class="main-wrapper has-margin-t-4">
-        <Hero />
-        <div class="container">
-          <h6 class="title is-5 is-uppercase font-light">
-            Latest <span class="font-regular">Notes</span>
-          </h6>
-
-          <div class="posts has-margin-b-2">
-            <div class="columns is-multiline">
-              <nuxt-link
-                v-for="post in posts"
-                :key="post.id"
-                :to="`/notes/${toSlug(post.post_title)}-${post.id}`"
-                class="column is-4"
-              >
-                <PostItem :post="post" />
-              </nuxt-link>
-            </div>
-
-          </div>
-        </div>
+    <PostList
+      title="posts"
+      :posts="portfolios"
+      :show-load-more-btn="showLoadMoreBtn"
+      :load-more-btn-text="loadMoreBtnText"
+      @load-more="loadMore()"
+    >
+      <div class="columns is-multiline">
+        <nuxt-link
+          v-for="portfolio in portfolios"
+          :key="portfolio.id"
+          :to="`/portfolio/${toSlug(portfolio.portfolio_title)}-${
+            portfolio.id
+          }`"
+          class="column is-4"
+        >
+          <PostItem
+            :post="{
+              post_title: portfolio.portfolio_title,
+              post_content: portfolio.portfolio_content,
+              post_image: portfolio.portfolio_image,
+            }"
+          />
+        </nuxt-link>
       </div>
-    </section>
+    </PostList>
   </div>
 </template>
 
 <script>
-import Hero from '@/components/Hero.vue'
 import PostItem from '@/components/PostItem.vue'
+import PostList from '@/components/PostList.vue'
 
 export default {
   components: {
-    Hero,
     PostItem,
+    PostList,
   },
   async asyncData({ app }) {
-    const res = await app.$axios.$get(`${process.env.baseUrl}/posts`, {
+    const res = await app.$axios.$get(`${process.env.baseUrl}/portfolios`, {
       params: {
         _start: 0,
-        _limit: 6,
+        _limit: 30,
         _sort: 'created_at:desc',
       },
     })
-    return { posts: res }
+    return { portfolios: res }
   },
   data() {
     return {
-      loadingBtn: 'Load More',
-      posts: [],
-      limit: 3,
+      showLoadMoreBtn: false,
+      loadMoreBtnText: 'Load More',
+      limit: 6,
       page: 1,
       sort: 'created_at:desc',
     }
@@ -64,16 +65,22 @@ export default {
   methods: {
     async loadMore() {
       this.page++
-      this.loadingBtn = '...'
-      const res = await this.$axios.$get(`${process.env.baseUrl}/posts`, {
+      this.loadMoreBtnText = '...'
+      const res = await this.$axios.$get(`${process.env.baseUrl}/portfolios`, {
         params: {
           _start: this.start,
           _limit: this.limit,
           _sort: this.sort,
         },
       })
-      this.loadingBtn = 'Load More'
-      this.posts = this.posts.concat(...res)
+
+      if (res.length === 0) {
+        this.showLoadMoreBtn = false
+        return
+      }
+
+      this.loadMoreBtnText = 'Load More'
+      this.portfolios = this.portfolios.concat(...res)
     },
     toSlug(text) {
       /* eslint-disable */
@@ -85,7 +92,7 @@ export default {
         .replace(/\-\-+/g, '-') // Replace multiple - with single -
         .replace(/^-+/, '') // Trim - from start of text
         .replace(/-+$/, '') // Trim - from end of text
-    }
+    },
   },
   head() {
     return {

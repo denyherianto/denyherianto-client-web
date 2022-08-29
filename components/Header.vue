@@ -61,10 +61,10 @@ export default {
           link: 'bookmarks',
           name: 'Bookmarks',
         },
-        // projects: {
-        //   link: 'projects',
-        //   name: 'Projects',
-        // },
+        portfolio: {
+          link: 'portfolio',
+          name: 'Portfolio',
+        },
         me: {
           link: 'me',
           name: '#me',
@@ -79,7 +79,7 @@ export default {
           this.closeMenu()
         }
       },
-    }
+    },
   },
   methods: {
     toggleMenu() {

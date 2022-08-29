@@ -18,7 +18,8 @@
           >
             {{ post.post_title }}
           </h5>
-          <div class="has-margin-t-8">
+
+          <div v-if="post.post_category" class="has-margin-t-8">
             <span class="title-category font-bold is-uppercase color-secondary"
               >{{ post.post_category.post_category_name }}&nbsp;</span
             >
@@ -49,7 +50,7 @@ export default {
   },
   computed: {
     imageUrl() {
-      return `${process.env.baseUrl}${this.post.post_image.url}`
+      return `${process.env.baseUrl}${this.post.post_image.formats.small.url}`
     },
   },
 }
