@@ -63,7 +63,11 @@ export default {
       return `${process.env.baseUrl}${this.portfolio.portfolio_image.url}`
     },
     portfolioContent() {
-      return (this.portfolio.portfolio_content ?? '').replaceAll(
+      if (!this.portfolio.portfolio_content) {
+        return ''
+      }
+
+      return this.portfolio.portfolio_content.replaceAll(
         '/uploads',
         `${process.env.baseUrl}/uploads`
       )
