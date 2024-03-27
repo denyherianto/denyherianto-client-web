@@ -23,9 +23,11 @@
             <span class="title-category font-bold is-uppercase color-secondary"
               >{{ post.post_category.post_category_name }}&nbsp;</span
             >
-            <span class="title-post-time font-light is-uppercase">{{
-              post.created_at | date
-            }}</span>
+            <span
+              v-if="post.created_at"
+              class="title-post-time font-light is-uppercase"
+              >{{ post.created_at | date }}</span
+            >
           </div>
         </div>
       </div>
@@ -50,7 +52,12 @@ export default {
   },
   computed: {
     imageUrl() {
-      return `${process.env.baseUrl}${this.post.post_image.formats.small.url}`
+      const RGX_LEADING_SLASH = /^\//
+      if (RGX_LEADING_SLASH.test(this.post.post_image.url)) {
+        return `${process.env.baseUrl}${this.post.post_image.url}`
+      }
+
+      return this.post.post_image.url
     },
   },
 }

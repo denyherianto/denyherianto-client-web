@@ -1,7 +1,6 @@
 <template>
   <div>
     <section class="main">
-
       <div class="main-wrapper has-margin-t-4">
         <Hero />
         <div class="container">
@@ -20,7 +19,6 @@
                 <PostItem :post="post" />
               </nuxt-link>
             </div>
-
           </div>
         </div>
       </div>
@@ -85,7 +83,7 @@ export default {
         .replace(/\-\-+/g, '-') // Replace multiple - with single -
         .replace(/^-+/, '') // Trim - from start of text
         .replace(/-+$/, '') // Trim - from end of text
-    }
+    },
   },
   head() {
     return {

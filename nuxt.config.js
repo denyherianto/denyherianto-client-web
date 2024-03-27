@@ -143,6 +143,13 @@ export default {
         },
       },
     },
+    extend(config, ctx) {
+      if (ctx && ctx.isClient) {
+        config.optimization.splitChunks.maxSize = 64000
+        config.performance.maxAssetSize = 700 * 1024 * 1024
+      }
+    },
+    maxChunkSize: 300000,
   },
 
   env: {

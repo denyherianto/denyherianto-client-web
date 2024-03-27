@@ -5,7 +5,7 @@
         <div class="container">
           <h6 class="title is-5 is-uppercase font-light">
             <!-- Personal <span class="font-regular">{{ title }}</span> -->
-            Personal {{ title }}
+            {{ title }}
           </h6>
 
           <slot />

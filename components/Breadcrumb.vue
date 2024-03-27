@@ -3,7 +3,7 @@
     <div class="container">
       <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
-          <li>
+          <li v-if="showHomeLink">
             <nuxt-link :to="'/'" class="has-text-black font-light is-uppercase">
               Home
             </nuxt-link>
@@ -28,6 +28,10 @@ export default {
     currentCategory: {
       type: String,
       default: '',
+    },
+    showHomeLink: {
+      type: Boolean,
+      default: false,
     },
   },
 }
